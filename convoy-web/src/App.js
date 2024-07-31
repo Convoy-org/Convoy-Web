@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} /> {/* Default route */}
         <Route path="/landingpage" element={<LandingPage />} /> {/* Additional route if needed */}
-        <Route path="//reset-password/:oobCode" element={<PasswordResetPage />} />
+        <Route path="/reset-password/:oobCode" element={<PasswordResetPage />} />
       </Routes>
     </BrowserRouter>
   );
