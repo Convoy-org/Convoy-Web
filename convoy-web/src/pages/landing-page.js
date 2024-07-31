@@ -9,8 +9,8 @@ const LandingPage = () => {
     <>
       <div className="flex items-center justify-center h-screen">
         <div className="text-center">
-          <a href="/about">
-            <h1 className="text-5xl font-bold text-main">CONVOYS</h1>
+          <a href="">
+            <h1 className="text-4xl font-bold text-main">CNVY</h1>
             <p className="font-bold text-second text-xs">Domi & Nathan™</p>
           </a>
           <a href="#more">
