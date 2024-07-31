@@ -1,29 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
+import { useLocation } from 'react-router-dom';
+import { auth } from '../firebase';
+import { confirmPasswordReset } from 'firebase/auth';
 
 const PasswordResetPage = () => {
-  const { oobCode } = useParams(); // Firebase action code
+  const location = useLocation();
   const [newPassword, setNewPassword] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const [oobCode, setOobCode] = useState('');
 
   useEffect(() => {
-    // Check if the code is valid
-    if (!oobCode) {
+    const queryParams = new URLSearchParams(location.search);
+    const code = queryParams.get('oobCode');
+    if (code) {
+      setOobCode(code);
+    } else {
       setError('Invalid or expired link.');
     }
-  }, [oobCode]);
+  }, [location]);
 
   const handleResetPassword = async (e) => {
     e.preventDefault();
     try {
-      await firebase.auth().confirmPasswordReset(oobCode, newPassword);
+      await confirmPasswordReset(auth, oobCode, newPassword);
       setMessage('Password has been reset successfully!');
       setError('');
     } catch (err) {
-      setError('Error resetting password. Please try again.');
+      console.error('Error resetting password:', err);
+      setError(`Error resetting password: ${err.message}`);
       setMessage('');
     }
   };
