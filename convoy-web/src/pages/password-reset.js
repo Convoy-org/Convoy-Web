@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { auth } from "../firebase";
+import { auth } from "../firebase"; // Ensure this path is correct
 import { confirmPasswordReset } from "firebase/auth";
-import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import eye icons
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const PasswordResetPage = () => {
   const location = useLocation();
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false); // State for password visibility
+  const [showPassword, setShowPassword] = useState(false);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [oobCode, setOobCode] = useState("");
@@ -42,8 +42,8 @@ const PasswordResetPage = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen ">
-      <div className="w-full max-w-md mx-auto p-6 rounded-lg shadow-md ">
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="w-full max-w-md mx-auto p-6 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold mb-4 text-white">Password Reset</h2>
         <form onSubmit={handleResetPassword} className="space-y-4">
           <div className="relative">
