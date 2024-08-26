@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { auth } from "../firebase"; // Ensure this path is correct
+import { auth } from "../../firebase"; 
 import { confirmPasswordReset } from "firebase/auth";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 

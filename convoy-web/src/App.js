@@ -1,14 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import LandingPage from './pages/landing-page';
-import PasswordResetPage from './pages/password-reset';
-import EmailChangePage from './pages/email-change';
+import PasswordResetPage from './pages/ios/password-reset';
+import EmailChangePage from './pages/ios/email-change';
+import AboutPage from "./pages/about"
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/reset-password" element={<PasswordResetPage />} />
         <Route path="/email-change" element={<EmailChangePage />} />
         <Route path="/action" element={<AuthActionHandler />} />
